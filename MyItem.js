@@ -1,43 +1,30 @@
-import React from 'react';
-
-
-
+import React from "react";
 
 class Item extends React.Component {
+    constructor(props) {
+        super(props);
 
-constructor(props) {
+        this.state = {
+            clicks: 0,
+        };
+    }
 
-super(props)
+    clickMe() {
+        this.setState({
+            clicks: this.state.clicks + 1,
+        });
+    }
 
-this.state = {
-clicks: 0
-}
-
-}
-
-clickMe(){
-
-this.setState({
-clicks: this.state.clicks + 1
-
-})
-
-}
-
-render() {
-
-return(
-<div>
-
-<h1 onClick={() => this.clickMe()}>I choose you {this.props.name}</h1>
-<span>{this.state.clicks} is the number of clicks</span>
-
-</div>
-
-)
-
-}
-
+    render() {
+        return (
+            <div>
+                <h1 onClick={() => this.clickMe()}>
+                    I choose you {this.props.name}
+                </h1>
+                <span>{this.state.clicks} is the number of clicks</span>
+            </div>
+        );
+    }
 }
 
 export default Item;
